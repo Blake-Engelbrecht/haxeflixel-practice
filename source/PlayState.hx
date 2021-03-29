@@ -1,20 +1,47 @@
 package;
 
+import flixel.text.FlxText;
 import flixel.FlxState;
+import flixel.util.FlxColor;
 
 class PlayState extends FlxState
 {
+	var hero:Hero;
+	var helloText:FlxText;
+
 	override public function create()
-	{		
+	{	
+		
+		hero = new Hero(20, 20);
+		add(hero);
+
 		super.create();
 
-		var text = new flixel.text.FlxText(0, 0, 0, "Hello World!", 64);
-		text.screenCenter();
-		add(text);
+		var helloText = new flixel.text.FlxText(0, 0, 0, "Hello World!", 64);
+		helloText.screenCenter();
+		add(helloText);
 	}
 
-	override public function update(elapsed:Float)
+	override public function update(elapsed:Float):Void
 	{
+
+		if (hero.x <= 0)
+			{
+				hero.x = 640;
+			}
+			else if (hero.x >= 640)
+				{
+					hero.x = 0;
+				}
+			else if (hero.y <= 0)
+				{
+					hero.y = 520;
+				}
+			else if (hero.y >= 520)
+				{
+					hero.y = 0;
+				}
+
 		super.update(elapsed);
 	}
 }
