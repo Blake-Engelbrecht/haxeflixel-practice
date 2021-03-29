@@ -28,18 +28,22 @@ class PlayState extends FlxState
 		if (hero.x <= 0)
 			{
 				hero.x = 640;
+				hero.color = 0xFFFF00FF;
 			}
 			else if (hero.x >= 640)
 				{
 					hero.x = 0;
+					hero.color = 0xFFFF0000;
 				}
 			else if (hero.y <= 0)
 				{
 					hero.y = 520;
+					hero.color =0xFF00FF00;
 				}
 			else if (hero.y >= 520)
 				{
 					hero.y = 0;
+					hero.color = 0xFF0000FF;
 				}
 
 		super.update(elapsed);
